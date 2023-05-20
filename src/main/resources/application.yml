@@ -12,6 +12,11 @@ server:
   connection-timeout: 50000
 app:
   debug: true
+  cors:
+    allowedOrigins: http://localhost:3000,http://localhost:8080
+logging:
+  level:
+    root: DEBUG
 ---
 spring:
   config:
@@ -33,7 +38,7 @@ spring:
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: prod
   datasource:
     url: jdbc:mysql://localhost:3306/example_web_service?createDatabaseIfNotExist=true
     username: root
