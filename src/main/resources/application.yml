@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   security:
     oauth2:
       client:
@@ -6,3 +8,41 @@ spring:
           github:
             clientId: 30d980e56ed9d2522a29
             clientSecret: 0382ceeab85f3dcd313ef74bfd99dcef0d98ad89
+server:
+  connection-timeout: 50000
+app:
+  debug: true
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/example_web_service_test?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/example_web_service?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect

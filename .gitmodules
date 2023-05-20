@@ -1,0 +1,3 @@
+[submodule "ui"]
+	path = ui
+	url = https://github.com/Kevin-Lago/javascript-react-example-web-service-ui.git
