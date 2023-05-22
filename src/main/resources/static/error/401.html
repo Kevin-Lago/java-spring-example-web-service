@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unauthorized</title>
+</head>
+
+<body>
+    <div class='screen' style='--stacks: 5;'>
+        <span style='--index: 0;'>
+            <svg viewBox='0 0 256 256' height="256px" width="256px">
+                <polygon points="128,16 256,240 0,240" />
+                <path transform="translate(101, 70)" d="M0 0 L54 0 L42 128 L12 128 Z" />
+                <path transform="translate(114, 204)" d="M0 0 L28 0 L28 28 L0 28 Z" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Unauthorized</text>
+            </svg>
+        </span>
+        <span style='--index: 1;'>
+            <svg viewBox='0 0 256 256' height="256px" width="256px">
+                <polygon points="128,16 256,240 0,240" />
+                <path transform="translate(101, 70)" d="M0 0 L54 0 L42 128 L12 128 Z" />
+                <path transform="translate(114, 204)" d="M0 0 L28 0 L28 28 L0 28 Z" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Unauthorized</text>
+            </svg>
+        </span>
+        <span style='--index: 2;'>
+            <svg viewBox='0 0 256 256' height="256px" width="256px">
+                <polygon points="128,16 256,240 0,240" />
+                <path transform="translate(101, 70)" d="M0 0 L54 0 L42 128 L12 128 Z" />
+                <path transform="translate(114, 204)" d="M0 0 L28 0 L28 28 L0 28 Z" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Unauthorized</text>
+            </svg>
+        </span>
+        <span style='--index: 3;'>
+            <svg viewBox='0 0 256 256' height="256px" width="256px">
+                <polygon points="128,16 256,240 0,240" />
+                <path transform="translate(101, 70)" d="M0 0 L54 0 L42 128 L12 128 Z" />
+                <path transform="translate(114, 204)" d="M0 0 L28 0 L28 28 L0 28 Z" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Unauthorized</text>
+            </svg>
+        </span>
+        <span style='--index: 4;'>
+            <svg viewBox='0 0 256 256' height="256px" width="256px">
+                <polygon points="128,16 256,240 0,240" />
+                <path transform="translate(101, 70)" d="M0 0 L54 0 L42 128 L12 128 Z" />
+                <path transform="translate(114, 204)" d="M0 0 L28 0 L28 28 L0 28 Z" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Unauthorized</text>
+            </svg>
+        </span>
+    </div>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #060608;
+            color: #FAFAFA;
+        }
+
+        .screen {
+            position: absolute;
+            display: grid;
+            grid-template-columns: 1fr;
+            height: 256px;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .screen span {
+            grid-row-start: 1;
+            grid-column-start: 1;
+            background-color: var(--red);
+            --stack-height: calc(100% / var(--stacks) - 1px);
+            --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+            --clip-top: calc(var(--stack-height) * var(--index));
+            --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+            clip-path: inset(var(--clip-top) -10px var(--clip-bottom) -10px);
+        }
+
+        .screen span:nth-child(odd) {
+            --glitch-translate: 8px;
+            animation: container-glitch-1 2s ease infinite 2s alternate-reverse;
+        }
+
+        .screen span:nth-child(even) {
+            --glitch-translate: -8px;
+            animation: container-glitch-2 2s ease infinite 2s alternate-reverse;
+        }
+
+        svg {
+            /* position: absolute;
+            left: calc(50% - 128px); */
+            fill: none;
+            stroke: red;
+            stroke-width: 1px;
+            font: bold 40px sans-serif;
+        }
+
+        @keyframes container-glitch-enter-1 {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%);
+                box-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+            }
+
+            ;
+
+            60% {
+                opacity: 0.5;
+                transform: translateX(50%);
+            }
+
+            80% {
+                transform: none;
+                opacity: 1;
+                box-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+            }
+
+            100% {
+                box-shadow: none;
+            }
+        }
+
+        @keyframes container-glitch-enter-2 {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%);
+                box-shadow: -2px 3px 0 green, 2px -3px 0 hotpink;
+            }
+
+            ;
+
+            60% {
+                opacity: 0.5;
+                transform: translateX(50%);
+            }
+
+            80% {
+                transform: none;
+                opacity: 1;
+                box-shadow: -2px 3px 0 green, 2px -3px 0 hotpink;
+            }
+
+            100% {
+                box-shadow: none;
+            }
+        }
+
+        @keyframes container-glitch-1 {
+            0% {
+                box-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+                transform: translate(var(--glitch-translate));
+            }
+
+            1% {
+                box-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+            }
+
+            2%,
+            100% {
+                box-shadow: none;
+                transform: none;
+            }
+        }
+
+        @keyframes container-glitch-2 {
+            0% {
+                box-shadow: -2px 3px 0 green, 2px -3px 0 hotpink;
+                transform: translate(var(--glitch-translate));
+            }
+
+            1% {
+                box-shadow: 2px -3px 0 green, -2px 3px 0 hotpink;
+            }
+
+            2%,
+            100% {
+                box-shadow: none;
+                transform: none;
+            }
+        }
+    </style>
+</body>
+
+</html>

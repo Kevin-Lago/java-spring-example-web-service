@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div className='screen'>
+    <svg className='danger-triangle' viewBox='0 0 256 256' height="256px" width="256px">
+        <polygon points="128,0 256,256 0,256" />
+    </svg>
+    <div className='message'>
+        <h1>
+            Unauthorized
+        </h1>
+    </div>
+</div>
+<style>
+        :root {
+            --background-color: #060608;
+            --text-color: #FAFAFA;
+            --primary-color: 200 100 0;
+            /* --call-to-action: 0 0 255; */
+            --image-hue-rotate: 20deg;
+            --black: #060608;
+        }
+
+        body {
+            background-color: var(--background-color);
+        }
+
+        h1 {
+            z-index: 1000;
+        }
+
+        .screen {
+            height: 256px;
+            width: 512px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message {
+            color: var(--text-color);
+        }
+
+        .danger-triangle {
+            position: absolute;
+            left: calc(50% - 128px);
+            fill: none;
+            stroke: red;
+            stroke-width: 1px;
+        }
+    </style>
+</body>
+</html>
