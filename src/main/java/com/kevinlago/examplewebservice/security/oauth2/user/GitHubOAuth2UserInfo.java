@@ -9,16 +9,16 @@ public class GitHubOAuth2UserInfo extends OAuth2UserInfo {
 
     @Override
     public String getId() {
-        return null;
+        return ((Integer) attributes.get("id")).toString();
     }
 
     @Override
     public String getName() {
-        return null;
+        return (String) attributes.get("name");
     }
 
     @Override
     public String getEmail() {
-        return null;
+        return (String) attributes.get("email");
     }
 }

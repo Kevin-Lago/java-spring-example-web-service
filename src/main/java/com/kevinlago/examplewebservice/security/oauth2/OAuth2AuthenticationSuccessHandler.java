@@ -1,6 +1,6 @@
 package com.kevinlago.examplewebservice.security.oauth2;
 
-import com.kevinlago.examplewebservice.config.Settings;
+import com.kevinlago.examplewebservice.config.AppProperties;
 import com.kevinlago.examplewebservice.exception.BadRequestException;
 import com.kevinlago.examplewebservice.security.TokenProvider;
 import com.kevinlago.examplewebservice.util.CookieUtil;
@@ -25,13 +25,13 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
     private TokenProvider tokenProvider;
 
-    private Settings appProperties;
+    private AppProperties appProperties;
 
     private HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
 
 
     @Autowired
-    OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider, Settings appProperties,
+    OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider, AppProperties appProperties,
                                        HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository) {
         this.tokenProvider = tokenProvider;
         this.appProperties = appProperties;

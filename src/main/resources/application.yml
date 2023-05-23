@@ -12,12 +12,28 @@ spring:
             scope:
               - user:email
               - read:user
+          google:
+            clientId: 1010276805268-6ifl7s541milmbhstapvts70f6v3r18s.apps.googleusercontent.com
+            clientSecret: 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
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
 server:
   connection-timeout: 50000
 app:
   debug: true
   cors:
     allowedOrigins: http://localhost:3000,http://localhost:8080
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we'll be generating an auth token for the user and sending the token to the
+    # redirectUri mentioned by the client in the /oauth2/authorize request.
+    # We're not using cookies because they won't work well in mobile clients.
+    authorizedRedirectUris:
+      - http://localhost:8080/oauth2/callback
+      - myandroidapp://oauth2/callback
+      - myiosapp://oauth2/callback
 logging:
   level:
     root: DEBUG

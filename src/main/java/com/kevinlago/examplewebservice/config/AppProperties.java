@@ -1,13 +1,12 @@
 package com.kevinlago.examplewebservice.config;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
-public class Settings {
+@ConfigurationProperties(prefix = "app")
+public class AppProperties {
     private final Auth auth = new Auth();
     private final OAuth2 oauth2 = new OAuth2();
     private static Boolean DEBUG;
